@@ -8,6 +8,7 @@ export default class AnimacaoScroll {
     this.checkDistance = this.checkDistance.bind(this);
   }
 
+  // Pega a distância de cada item em relação ao topo do site
   getDistance() {
     this.distance = [...this.sections].map((section) => {
       const offset = section.offsetTop;
@@ -18,6 +19,7 @@ export default class AnimacaoScroll {
     });
   }
 
+  // Verifica a distância em cada objeto em relação ao scroll do site
   checkDistance() {
     this.distance.forEach((item) => {
       if (window.pageYOffset > item.offset) {
@@ -37,6 +39,7 @@ export default class AnimacaoScroll {
     return this;
   }
 
+  // Remove o evento de scroll
   stop() {
     window.removeEventListener("scroll", this.checkDistance);
   }
